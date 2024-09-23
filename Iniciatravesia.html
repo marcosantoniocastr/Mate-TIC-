@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="" content="">
+    <title>Mate TIC</title>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet"/>
+    <style type="text/css" media="all">
+      body {
+        background-color: ; /* Fondo personalizado */
+      }
+      .navigation {
+            display: flex;
+            justify-content: space-between; /* Espacio entre los elementos */
+            padding: 10px; /* Espaciado alrededor */
+            background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+            color: white; /* Color del texto */
+        }
+        a {
+            color: white; /* Color del enlace */
+            text-decoration: none; /* Sin subrayado */
+        }
+    </style>
+    <script type="text/javascript" charset="utf-8">
+      function speech() {
+        var content = document.querySelectorAll('p, span'); 
+        var fullText = "";
+        content.forEach(function (element) {
+          fullText += element.innerText + " ";
+        });
+        if (fullText != "") {
+          voz.text = fullText;
+          window.speechSynthesis.speak(voz);
+        }
+        alert("Procesando...");
+      }
+      var voz = new SpeechSynthesisUtterance();
+      voz.lang = "es-Es";
+      voz.volume = 1;
+      voz.rate = 0.8; // Velocidad de habla (1 es normal)
+      voz.pitch = 1; // Tono (1 es el tono normal)
+      var timer = setInterval(function(){
+        var voices = speechSynthesis.getVoices();
+        if (voices.lenght!=0) {
+          voz.voice=voices[0];
+          voz.voiceURI=voices[0].voiceURI;
+          clearInterval(timer);
+        }
+        console.log(voices);
+      },1000);
+    </script>
+  </head>
+  <body class="font-sans ">
+    
+    <main class="max-w-4xl mx-auto p-8  rounded-lg shadow-xl">
+      
+      <h1 class="text-4xl font-bold mt-4 mb-6 text-center text-yellow-700">Mate TIC</h1>
+         <button class="px-4 py-2 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-500 transition duration-300 ease-in-out" onclick="speech()">Leer en voz alta</button>
+         <br /><br />
+      <table class="w-full border border-gray-300 rounded-lg mb-6">
+        <tr>
+          <th class="p-4 bg-purple-500 text-white text-lg">Conjuntos e Intervalos Numéricos</th>
+        </tr>
+      </table>
+
+      <details class="mb-4">
+        <summary class="font-semibold text-xl text-blue-600">secciones</summary>
+        <p class="ml-4 mt-2">1- Conjuntos</p>
+        <p class="ml-4">2- Intervalos numéricos</p>
+      </details>
+      
+      <article>
+        <h2 class="text-1.5xl font-bold mb-1 text-yellow-600">Conjunto, elemento, notación por extensión, pertenencia, cardinalidad de conjunto</h2>
+        
+        <p class="mb-4 && text-justify">
+          Primero debes de saber qué es un <span class="font-semibold text-blue-600">conjunto</span> en Matemáticas. Bueno, piensa en una caja  llamada A, es decir que esa caja tiene objetos adentro. Entonces, lo que tiene es un conjunto de cosas que puedo comparar con otras cosas, como con otra caja. A estas se les llama conjuntos.
+        </p>
+
+        <p class="mb-4 && text-justify">
+          Un <span class="font-semibold text-blue-600">elemento</span> en el tema de conjuntos es lo que está adentro de la  caja. Ese objeto puede ser un número dentro de una caja A; la caja se llama conjunto.
+        </p>
+
+        <p class="mb-4 && text-justify">
+          Para <span class="font-semibold text-blue-600">denotar un conjunto</span> o escribir un conjunto en lenguaje matemático debe pensarse así: tenemos la  caja A, donde para que tenga algo debo encerrar sus elementos dentro. Para esto usamos {} donde se escriben los elementos como números A {1, 2, 3}; los elementos se separan por comas. La caja A encierra los números. El conjunto de A contiene elementos del 1 al 3.
+        </p>
+
+        <p class="mb-4 && text-justify">
+          <span class="font-semibold text-blue-600">Pertenencia</span> en los conjuntos se refiere a si dentro de la caja  con elementos (ya sean números) ese elemento pertenece o no. Esto se presenta con la letra (e si pertenece) o (e tachada si no pertenece). A{1, 2, 3} 1, 2 y 3 pertenecen al conjunto A, pero si te digo que 9 pertenece al conjunto de A, pues no pertenece. Listo, estás aprendiendo la lógica.
+        </p>
+      </article>
+      <div class="navigation">
+        <div>
+            <a href="index.html">Atrás</a>
+        </div>
+        <div>
+            <a href="siguiente-page.html">Siguiente</a>
+        </div>
+    </div>
+    </main>
+  </body>
+</html>
