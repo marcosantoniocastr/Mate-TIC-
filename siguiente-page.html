@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="" content="">
+    <title></title>
+    <style type="text/css" media="all">
+      h1, p, h2 {
+        text-align: center;
+        justify-content: text;
+      }
+    </style>
+    <script type="text/javascript" charset="utf-8">
+       function speech (){
+         var content = document.querySelectorAll('p, span');
+         var typetext = "";
+         content.forEach(function(element){
+           typetext += element.innerText + "";
+         });
+         if (typetext != "") {
+           voz.text = typetext;
+           window.speechSynthesis.speak(voz);
+         }
+         alert("Descifrando...");
+       }
+       var voz = new SpeechSynthesisUtterance();
+       voz.lang = "es-Es";
+       voz.volume = 1;
+       voz.rate = 0.8; // Velocidad de habla (1 es normal)
+       voz.pitch = 1; // Tono (1 es el tono normal)
+      var timer = setInterval(function(){
+        var voices = speechSynthesis.getVoices();
+        if (voices.lenght!=0) {
+          voz.voice=voices[0];
+          voz.voiceURI=voices[0].voiceURI;
+          clearInterval(timer);
+        }
+        console.log(voices);
+      },1000);
+    </script>
+  </head>
+  <body class="font-sans">
+    <main class="max-w-4xl mx-auto p-8  rounded-lg shadow-xl">
+    <header>
+      <h1 class="text-4xl font-bold mt-4 mb-6 text-center text-yellow-300">Mate TIC</h1>
+      <h2>Ejemplos</h2>
+      <article>
+           <button class="px-4 py-2 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-500 transition duration-300 ease-in-out" onclick="speech()">Leer en voz alta</button>
+            <div>
+              <pclass="mb-4 && text-justify">Ejercicios, resuelve con tu conocimiento obtenido de la práctica teórica.</p>
+              <canvas>
+                
+              </canvas>
+            </div>
+      </article>
+    </header>
+     <div class="navigation">
+        <div>
+            <a href="iniciatravesia.html">Atrás</a>
+        </div>
+        <div>
+            <a href="siguiente-page1.html">Siguiente</a>
+        </div>
+    </div>
+    </main>
+  </body>
+</html>
